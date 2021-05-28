@@ -16,8 +16,12 @@ function init() {
 
   const startingPlayerPosition = 389 //we need to have a variable to store a cats initial position
   let currentPlayerPosition = 389 // let allows use to change current position, so we can keep track as well
+  const startingAlienPosition = 0
+  let currentAlienPosition = 0
+  
   const playerClass = 'player' // variable stores a class of cat, so we can attach it later as variable
   const bulletClass = 'bullet'
+  const alienClass = 'alien'
   
 
   function createGrid(startingPlayerPosition) { //function that determines the grid
@@ -47,6 +51,9 @@ function init() {
     cells[position].classList.remove(playerClass) // so now, from current position, we remove a cat
   }
 
+  function addAlien(position) {
+    cells[position].classList.add(alienClass)
+  }
   // const bulletCurrentPosition = currentPlayerPosition
 
   // function shoot(currentPlayerPosition){
@@ -128,6 +135,7 @@ function init() {
       console.log('INVALID KEY')
     }
     addPlayer(currentPlayerPosition) // ! here we add a cat to new position
+    addAlien(currentAlienPosition)
   }
   document.addEventListener('keyup', handleKeyUp)
   

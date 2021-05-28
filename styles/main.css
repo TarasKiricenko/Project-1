@@ -55,3 +55,10 @@ body {
   background-size: contain;
   cursor: pointer;
 }
+
+.alien {
+  background-color: rgb(4, 89, 31);
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+}
