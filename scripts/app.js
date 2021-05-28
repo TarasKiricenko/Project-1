@@ -54,6 +54,32 @@ function init() {
   function addAlien(position) {
     cells[position].classList.add(alienClass)
   }
+  
+  function removeAlien(position) {
+    cells[position].classList.remove(alienClass)
+  }
+
+  function moveAlien() {
+    console.log(currentAlienPosition)
+    removeAlien(currentAlienPosition)
+    // for (let i = 0; i <= cellCount - width; i++) {
+      
+    //   if (cells[i].classList.contains(alienClass)) {
+    //     console.log(cells[i])
+    //     cells[i].classList.remove(alienClass)
+    //     console.log(cells[i + 1])
+    //     cells[i + 1].classList.add(alienClass)
+    //   }
+    // }
+    console.log(currentAlienPosition)
+    currentAlienPosition ++
+    addAlien(currentAlienPosition)
+    if (currentAlienPosition === 19)
+    currentAlienPosition +=
+  }
+  
+  const intervalMoveAlien = setInterval(moveAlien, 200)
+
   // const bulletCurrentPosition = currentPlayerPosition
 
   // function shoot(currentPlayerPosition){
@@ -75,7 +101,10 @@ function init() {
         // console.log('i is here')
         cells[i].classList.remove(bulletClass)
         cells[i - width].classList.add(bulletClass)
-      } 
+      } else if (cells[i].classList.contains(bulletClass) && cells[i].classList.contains(alienClass)) {
+        cells[i].classList.remove(bulletClass)
+        cells[i].classList.remove(alienClass)
+      }
     // console.log(bulletCurrentPosition)
     // console.log(typeof(bulletCurrentPosition))
     // bulletCurrentPosition -= 20
@@ -86,7 +115,7 @@ function init() {
     cells[currentPlayerPosition - width].classList.add(bulletClass) 
   }
 
-  const interval = setInterval(moveBullet, 100)
+  const intervalMoveBullet = setInterval(moveBullet, 100)
   function handleKeyUp(event) {
   //   console.log(event)
   //   console.log(event.keyCode) //that show us what key was pressed
@@ -134,18 +163,18 @@ function init() {
     } else {
       console.log('INVALID KEY')
     }
+    
     addPlayer(currentPlayerPosition) // ! here we add a cat to new position
-    addAlien(currentAlienPosition)
   }
   document.addEventListener('keyup', handleKeyUp)
   
 
   createGrid(startingPlayerPosition)
+  addAlien(startingAlienPosition)
 }
 
 // start.addEventListener('click', startGame)
 
 
 // }
-
 window.addEventListener('DOMContentLoaded', init)
