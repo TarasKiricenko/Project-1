@@ -9,6 +9,7 @@ function init() {
   const grid = document.querySelector('.grid') // we grab out grid
   // console.log(grid)
   // write as many vairables in global scope, so we can modiy tehm later
+  const spanValue = document.querySelector('span')
   const width = 20 // width equals to ten cell
   const cellCount = width * width // we want 100 cells, so multiply
   const cells = [] //empty array, to keep track of them somewhere it stores indexes of divs(cells)
@@ -16,12 +17,15 @@ function init() {
 
   const startingPlayerPosition = 389 //we need to have a variable to store a cats initial position
   let currentPlayerPosition = 389 // let allows use to change current position, so we can keep track as well
-  const startingAlienPosition = 0
-  let currentAlienPosition = 0
+  const startingAlienPosition = [0]
+  let currentAlienPosition = [0]
   
+
+
   const playerClass = 'player' // variable stores a class of cat, so we can attach it later as variable
   const bulletClass = 'bullet'
   const alienClass = 'alien'
+  
   
 
   function createGrid(startingPlayerPosition) { //function that determines the grid
@@ -32,6 +36,8 @@ function init() {
       // console.log('cell >>>', cell) //it has inner text inside to identify index
       grid.appendChild(cell) //attach our created cells to grid div, cell is also a div with index
       cells.push(cell) // need to keep track of created cells, we push it into CELLS empty array 
+      
+      
     }
     // console.log('cells array >>>', cells) // we logging our array of cells we created.
     addPlayer(startingPlayerPosition) //that is how we get cat displaying as soon as the grid created, 
@@ -53,40 +59,25 @@ function init() {
 
   function addAlien(position) {
     cells[position].classList.add(alienClass)
-    // cells[positionAlien + 2].classList.add(alienClass)
+    cells[position + 2].classList.add(alienClass)
   }
   
   function removeAlien(position) {
     cells[position].classList.remove(alienClass)
   }
 
-  function moveAlienLeft(){
-    console.log(currentAlienPosition)
-    removeAlien(currentAlienPosition)
-    for (let i = 0; i <= cellCount; i++) {
-      if (cells[i].classList.contains(alienClass)) {
-        console.log('alien current position is att div>', cells[i])
+  function collisionCheck () {
+    for (let i = 0; i <= cellCount; i ++) {
+      if (cells[i].classList.contains(alienClass) && cells[i].classList.contains(bulletClass)) {
+        spanValue.innerText += 10
         cells[i].classList.remove(alienClass)
-        cells[i - 1].classList.add(alienClass)
-        console.log(cells[i])
+        cells[i].classList.remove(bulletClass)
       }
     }
-    console.log(currentAlienPosition)
-    currentAlienPosition --
-    addAlien(currentAlienPosition)
-
-    // currentAlienPosition % width !== 0
-    if (currentAlienPosition / width === 0 && currentAlienPosition <= 0) {
-      currentAlienPosition += width
-      clearTimeout(intervalMoveAlienLeft)
-      moveAlienRight()
-    }
   }
-
-  const intervalMoveAlienLeft = setInterval(moveAlienLeft, 200)
-  
-  
-
+   
+  const interval = setInterval(collisionCheck, 10)
+    
   function moveAlienRight() {
     console.log(currentAlienPosition)
     removeAlien(currentAlienPosition)
@@ -98,28 +89,23 @@ function init() {
         // console.log(cells[i])
         cells[i].classList.remove(alienClass)
         // console.log(cells[i + 1])
-        cells[i].classList.add(alienClass)
+        cells[i + 1].classList.add(alienClass)
       }
     }
     console.log(currentAlienPosition)
     currentAlienPosition ++
     addAlien(currentAlienPosition)
-
-    if ((currentAlienPosition - ((width / 2) - 1)) % width === 10 + 1){
-      currentAlienPosition = 39
+  
+    if ((currentAlienPosition - ((width / 2) - 1)) % width === 10){
+      // stop(currentAlienPosition)
+      // currentAlienPosition += width
       clearTimeout(intervalMoveAlienRight)
-      moveAlienLeft()
+      // moveAlienLeft()
     }
       
   }
-
+  
   const intervalMoveAlienRight = setInterval(moveAlienRight, 200)
-  // if ((currentAlienPosition === 19)) {
-  //   currentAlienPosition += width
-      
-  // }
-    
-
   // if (currentAlienPosition === 381) {
   //   window.alert('You lose! Do you want to start again?')
   //   window.location.href = window.location.href }
@@ -152,21 +138,25 @@ function init() {
         // console.log('i is here')
         cells[i].classList.remove(bulletClass)
         cells[i - width].classList.add(bulletClass)
-      } else if (cells[i].classList.contains(bulletClass) && cells[i].classList.contains(alienClass)) {
-        cells[i].classList.remove(bulletClass)
-        cells[i].classList.remove(alienClass)
-      }
+        
+        
+      } //else if (cells[i].classList.contains(bulletClass) && cells[i].classList.contains(alienClass)) {
+      //   cells[i].classList.remove(bulletClass)
+      //   cells[i].classList.remove(alienClass)
+      // }
     // console.log(bulletCurrentPosition)
     // console.log(typeof(bulletCurrentPosition))
     // bulletCurrentPosition -= 20
     }
   }
 
+  const intervalMoveBullet = setInterval(moveBullet, 100)
+
   function addBullet () {
     cells[currentPlayerPosition - width].classList.add(bulletClass) 
   }
 
-  const intervalMoveBullet = setInterval(moveBullet, 100)
+  
   function handleKeyUp(event) {
   //   console.log(event)
   //   console.log(event.keyCode) //that show us what key was pressed
@@ -218,8 +208,8 @@ function init() {
     addPlayer(currentPlayerPosition) // ! here we add a cat to new position
   }
   document.addEventListener('keyup', handleKeyUp)
+  document.addEventListener
   
-
   createGrid(startingPlayerPosition)
   addAlien(startingAlienPosition)
 }
