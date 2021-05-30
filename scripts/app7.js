@@ -16,15 +16,15 @@ function init() {
   const bulletClass = 'bullet'
   const explosionClass = 'explosion'
   const startingAlienPositionArray = [0,2,4,6,8,10,12,14,21,23,25,27,29,31,33,40,42,44,46,48,50,52,54]
+  const aliensAfterExplosion = []
   const startingPlayerPosition = 389
   let currentPlayerPosition = 389
   let currentBulletPosition
-
   // FUNCTIONS GONNA WRITE AS MANY
   function createGrid() {
     for (let i = 0; i < cellCount; i ++) {
       const cell = document.createElement('div')
-      // cell.innerText = i
+      cell.innerText = i
       grid.appendChild(cell)
       cells.push(cell)
     }
@@ -33,13 +33,11 @@ function init() {
 
   function createAliens() {
     for (let i = 0; i < startingAlienPositionArray.length; i++) {
-      console.log(startingAlienPositionArray[i]) 
-      console.log(cells[i])
-      console.log(cells[i].classList)
-      console.log(cells.includes(alienClasss))
-      if (cells[i] !== startingAlienPositionArray[i]) {
-        cells[startingAlienPositionArray[i]].classList.add(alienClasss)
-      }
+      // console.log(startingAlienPositionArray[i]) 
+      // console.log(cells[i])
+      // console.log(cells[i].classList)
+      // console.log(cells.includes(alienClasss))
+      cells[startingAlienPositionArray[i]].classList.add(alienClasss)
     }
   }
   createAliens()
@@ -50,9 +48,48 @@ function init() {
     }
   }
 
-  function moveAliens() {
-
+  function setMoveAliensBorders(){
+    for (let i = 0; i < cellCount; i++) {
+      if (cells[i].innerText % width === 19) {
+        cells[i].classList.add('rightborder')
+      } 
+      if (cells[i].innerText % width === 0) {
+        cells[i].classList.add('leftborder')
+      }
+    }
   }
+  setMoveAliensBorders()
+
+  function moveAliens() {
+    removeAliens()
+    for (let i = 0; i < startingAlienPositionArray.length; i++) 
+      startingAlienPositionArray[i] += 1
+    // if (startingAlienPositionArray[i].classList.contains('rightborder')) {
+    //   startingAlienPositionArray[i]
+    // }
+    createAliens()
+    
+  }
+  const intervalMoveAliens = setInterval(moveAliens, 1000)
+  // function moveAliensRight() {
+  //   console.log(currentAlienPositionArray)
+  //   removeAliens()
+  //   for (let i = 0; i < cellCount; i++) {
+  //     if (cells[i].classList.contains(alienClasss)) {
+  //     // && !cells[i].classList.contains('rightborder'))) {
+  //       cells[i].classList.remove(alienClasss)
+  //       cells[i + 1].classList.add(alienClasss)
+  //     } 
+  //   }
+  //   createAliens()
+  // }
+  // const intervalMoveAliensRight = setInterval(moveAliensRight, 500)
+  // function moveAliensRight() {
+  //   for (let i = 0; i < width; i++) {
+  //     if (cells[i].classList.contains(alienClasss) && !cells[i].)
+  //   }
+
+  // }
   
 
   function createPlayer(){
@@ -114,10 +151,31 @@ function init() {
         cells[i].classList.remove(bulletClass)
         spanValue.innerText = spanValueNumber
         cells[i].classList.add(explosionClass)
+        setTimeout(() => cells[i].classList.remove(explosionClass), 1000)
       }
     }
   }
   const intervalExplosionDetection = setInterval(explosionDetection, 20)
+
+  function removeAliensFromArray() {
+    for (let i = 0; i < cellCount; i++) {
+      if (cells[i].classList.contains(alienClasss) && cells[i].classList.contains(bulletClass)) {
+        startingAlienPositionArray.length -= 1
+        console.log(startingAlienPositionArray)
+      }
+    }
+  }
+  const intervalRemoveAliensFromArray = setInterval(removeAliensFromArray, 20)
+  // function removeExplosion () {
+  //   for (let i = 0; i < cellCount; i++) {
+  //     // if (cells[i].classList.contains(explosionClass) {
+  //       setTimeout(removeExplosion, 400)
+  //     }
+  //   }
+  // }
+
+  // const intervalRemoveExplosion = setInterval(removeExplosion, 20)
+
 
   document.addEventListener('keyup', addBullet)
   document.addEventListener('keyup', movePlayer)
