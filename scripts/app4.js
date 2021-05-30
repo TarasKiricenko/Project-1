@@ -9,11 +9,6 @@ function init() {
   const cells = []
   const startingPlayerPosition = 389
   let currentPlayerPosition = 389
-  const startingAlienPosition = 0
-  const startingAlienPositionArray = [3, 5, 7, 9, 11, 13, 15]
-  let currentAlienPosition = 0
-  const currentAlienPositionArray = 0
-  
   const playerClass = 'player'
   const bulletClass = 'bullet'
   const alienClass = 'alien'
@@ -24,9 +19,22 @@ function init() {
       cell.innerText = i
       grid.appendChild(cell)
       cells.push(cell)
+      cells[aliensAsArray[i]].classList.add(alienClass)
     }
     addPlayer(startingPlayerPosition)
   }
+
+  const aliensAsArray = [0,2,4,6,8,10,12,14,40,42,44,46,48,50,52,54]
+  
+  // function addAliensAsArray() {
+  //   for (let i = 0; i < aliensAsArray.length; i++) {
+  //     if (cells[i] !== aliensArray[i])
+  //     cells[aliensAsArray[i]].classList.add(alienClass)
+  //   }
+  // }
+
+  // addAliensAsArray()
+
 
   function addPlayer(position) {
     cells[position].classList.add(playerClass)
@@ -36,49 +44,28 @@ function init() {
     cells[position].classList.remove(playerClass)
   }
 
-  function addAlien(position) {
-    cells[position].classList.add(alienClass)
-    // cells[position - 2].classList.add(alienClass)
-    // cells[position - 4].classList.add(alienClass)
-    // cells[position - 6].classList.add(alienClass)
-    cells[position + 2].classList.add(alienClass)
-    cells[position + 4].classList.add(alienClass)
-    cells[position + 6].classList.add(alienClass)
-  }
+  // function addAlien(position) {
+  //   cells[position].classList.add(alienClass)
+  //   cells[position - 2].classList.add(alienClass)
+  //   cells[position - 4].classList.add(alienClass)
+  //   cells[position - 6].classList.add(alienClass)
+  //   cells[position + 2].classList.add(alienClass)
+  //   cells[position + 4].classList.add(alienClass)
+  //   cells[position + 6].classList.add(alienClass)
+  // }
   
-  function removeAlien(position) {
-    cells[position].classList.remove(alienClass)
-  }
+  // function removeAlien(position) {
+  //   cells[position].classList.remove(alienClass)
+  // }
 
-  
-  function moveAlienRight() {
-    console.log(currentAlienPosition)
-    removeAlien(currentAlienPosition)
-    // for (let i = 0; i <= currentAlienPosition - ((width / 2) - 1) % width === 10; i++) {
-  
-    for (let i = 0; i <= cellCount - width; i++) {
-    
-      if (cells[i].classList.contains(alienClass)) {
-      // console.log(cells[i])
-        cells[i].classList.remove(alienClass)
-        // console.log(cells[i + 1])
-        cells[i].classList.add(alienClass)
-      }
-    }
-    console.log(currentAlienPosition)
-    currentAlienPosition ++
-    addAlien(currentAlienPosition)
+  // function aliensMove(currentAlienPosition) {
+  //   for (let i = 0; i <= 20; i++) {
+  //     if (cells[i].classList.contains(alienClass)) {
+  //       console.log('hi')
+  //     }
 
-    if ((currentAlienPosition - ((width / 2) - 1)) % width === 10){
-      currentAlienPosition += width
-      clearTimeout(intervalMoveAlienRight)
-      moveAlienLeft()
-    }
-    
-  }
-
-  const intervalMoveAlienRight = setInterval(moveAlienRight, 200)
-
+  //   }
+  // }
   let spanValueNumber = 0
   function moveBullet() {
     for (let i = 0; i < cellCount; i++) {

@@ -57,7 +57,21 @@ body {
 }
 
 .alien {
+  background-image: url("https://i.pinimg.com/originals/a9/4c/bd/a94cbdfbcbb2601979e9f49c7927cb1a.gif");
   background-color: rgb(4, 89, 31);
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+}
+.player {
+  background-color: red;
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+}
+
+.explosion {
+  background-color: orange;
   background-repeat: no-repeat;
   background-size: contain;
   cursor: pointer;
