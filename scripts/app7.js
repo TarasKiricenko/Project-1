@@ -15,7 +15,8 @@ function init() {
   const alienClasss = 'alien'
   const bulletClass = 'bullet'
   const explosionClass = 'explosion'
-  const startingAlienPositionArray = [0,2,4,6,8,10,12,14,21,23,25,27,29,31,33,40,42,44,46,48,50,52,54]
+  let startingAlienPositionArray = [0,2,4,6,8,10,12,14,21,23,25,27,29,31,33,40,42,44,46,48,50,52,54]
+  console.log(startingAlienPositionArray.length)
   const aliensAfterExplosion = []
   const startingPlayerPosition = 389
   let currentPlayerPosition = 389
@@ -64,13 +65,16 @@ function init() {
     removeAliens()
     for (let i = 0; i < startingAlienPositionArray.length; i++) 
       startingAlienPositionArray[i] += 1
+    if ((startingAlienPositionArray - ((width / 2) - 1)) % width === 10) {
+      clearTimeout(moveAliens)
+    }
     // if (startingAlienPositionArray[i].classList.contains('rightborder')) {
     //   startingAlienPositionArray[i]
     // }
     createAliens()
     
   }
-  const intervalMoveAliens = setInterval(moveAliens, 1000)
+  const intervalMoveAliens = setInterval(moveAliens, 970)
   // function moveAliensRight() {
   //   console.log(currentAlienPositionArray)
   //   removeAliens()
@@ -132,6 +136,7 @@ function init() {
         cells[i].classList.remove(bulletClass)
         cells[i - width].classList.add(bulletClass)
         currentBulletPosition = cells[i - width]
+        
         if (currentBulletPosition.classList.contains(bulletClass) && cells[i].innerText < 20) {
           console.log('bullet is at bottom line') //! bug here, it was not working in the previous version like this
           cells[i].classList.remove(bulletClass)
@@ -151,21 +156,36 @@ function init() {
         cells[i].classList.remove(bulletClass)
         spanValue.innerText = spanValueNumber
         cells[i].classList.add(explosionClass)
-        setTimeout(() => cells[i].classList.remove(explosionClass), 1000)
+        startingAlienPositionArray.pop()
+        if (startingAlienPositionArray.length === 0) {
+          window.alert('You win')
+        }
+        
+
       }
     }
   }
   const intervalExplosionDetection = setInterval(explosionDetection, 20)
 
-  function removeAliensFromArray() {
+  function removeExplosion() {
     for (let i = 0; i < cellCount; i++) {
-      if (cells[i].classList.contains(alienClasss) && cells[i].classList.contains(bulletClass)) {
-        startingAlienPositionArray.length -= 1
-        console.log(startingAlienPositionArray)
+      if (cells[i].classList.contains(explosionClass)) {
+        setTimeout(() => {
+          cells[i].classList.remove(explosionClass)
+        }, 700)
       }
     }
   }
-  const intervalRemoveAliensFromArray = setInterval(removeAliensFromArray, 20)
+  const intervalRemoveExplosion = setInterval(removeExplosion, 20)
+
+  // function checkIfPlayerWins() {
+  //   for (let i = 0; i < cellCount; i++) {
+  //     if (!cells[i].classList.contains(alienClasss) && cells[i].classList.contains(playerCLass)) {
+  //       window.alert('You win!')
+  //     }
+  //   }
+  // }
+  // const intervalCheckIfPlayerWins = setInterval(checkIfPlayerWins, 2000)
   // function removeExplosion () {
   //   for (let i = 0; i < cellCount; i++) {
   //     // if (cells[i].classList.contains(explosionClass) {
