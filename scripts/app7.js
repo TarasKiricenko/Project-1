@@ -15,12 +15,14 @@ function init() {
   const alienClasss = 'alien'
   const bulletClass = 'bullet'
   const explosionClass = 'explosion'
-  const startingAlienPositionArray = [0,1,2,3,4]
-  // let startingAlienPositionArray = [0,2,4,6,8,10,12,14,21,23,25,27,29,31,33,40,42,44,46,48,50,52,54]
+  const alienBulletClass = 'alienbullet'
+  // const startingAlienPositionArray = [0,1,2,3,4]
+  const startingAlienPositionArray = [0,2,4,6,8,10,12,14,21,23,25,27,29,31,33,40,42,44,46,48,50,52,54]
   // console.log(startingAlienPositionArray.length)
   const startingPlayerPosition = 389
   let currentPlayerPosition = 389
   let currentBulletPosition
+  let currentAlienBulletPosition
   // let speedOfAliensToMove = 200
   // FUNCTIONS GONNA WRITE AS MANY
   function createGrid() {
@@ -62,16 +64,31 @@ function init() {
   }
   setMoveAliensBorders()
   
-  function moveAliensRight() {
+  function moveAliens() {
     removeAliens()
     for (let i = 0; i < startingAlienPositionArray.length; i++) {
+      // console.log(cells[startingAlienPositionArray[i]])
       startingAlienPositionArray[i] += 1
     }
     // startingAlienPositionArray[i] += 1
     // console.log(cells[i].innerText % width === width - 1)
     createAliens()
   }
-  const intervalMoveAliensRight = setInterval(moveAliensRight, 400)
+  const intervalMoveAliensRight = setInterval(moveAliens, 1000)
+
+  function addAlienBullet() {
+    // console.log(startingAlienPositionArray)
+    const startBulletFrom = startingAlienPositionArray[Math.floor(Math.random() * startingAlienPositionArray.length)]
+    // console.log(startBulletFrom)
+    for (let i = 0; i < cellCount; i++) {
+      // console.log(startBulletFrom)
+      cells[startBulletFrom].classList.add(alienBulletClass)
+    }
+  }
+  const intervalAddAlienBullet = setInterval(addAlienBullet, (Math.floor(Math.random() * 5000)))
+  //! need to adjust according to game play.
+
+  
   // function moveAliensRight() {
   //   console.log(currentAlienPositionArray)
   //   removeAliens()
@@ -156,9 +173,10 @@ function init() {
         console.log('score + 10')
         spanValueNumber += parseInt(10)
         cells[i].classList.remove(alienClasss)
-        cells[i].classList.remove(bulletClass)
+        // cells[i].classList.remove(bulletClass)
         spanValue.innerText = spanValueNumber
         cells[i].classList.add(explosionClass)
+        cells[i].classList.remove(bulletClass)
         console.log(cells[i])
         console.log(startingAlienPositionArray)
         console.log(cells[i].innerText)

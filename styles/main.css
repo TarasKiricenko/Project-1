@@ -8,8 +8,16 @@ body {
   margin: 0;
 }
 
+section {
+  display: flex;
+  justify-content: space-around;
+}
 
+.game-name {
+  font-family: 'Monoton', cursive;
+}
 .grid-wrapper {
+  /* background-color: turquoise; */
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -18,6 +26,10 @@ body {
 
 .grid {
   align-items: center;
+  /* background-color: turquoise; */
+  background-image: url("https://acegif.com/wp-content/gifs/starfall-gif-62.gif");
+  background-repeat: no-repeat;
+  background-size: contain;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
   display: flex;
   flex-wrap: wrap;
@@ -28,10 +40,11 @@ body {
 }
 
 .grid div {
-  border: 1px solid lightgrey;
+  /* border: 1px solid lightgrey; */
   flex-grow: 1;
   height: 5%;
   width: 5%;
+  color: transparent;
 }
 
 .grid div.player {
@@ -43,36 +56,50 @@ body {
 }
 
 .grid div.bullet {
-  background-color: blue;
+  /* background-color: blue; */
   background-repeat: no-repeat;
   background-size: contain;
   cursor: pointer;
 }
 
 .bullet {
-  background-color: blue;
+  /* background-color: blue; */
+  /* background-image: url("https://lh3.googleusercontent.com/proxy/zTP_Ikph68wmH43dGSGb06ZF-tLaiT1vZNCkiVB5nuxiWOaN-ImLFLv4QTuh9MJZHtCNXPp4siEzjq3O_AY-SW0Gnp_A9MQjWjsR9PgNZHhM"); */
+  /* background-image: url("http://clipart-library.com/img/1980562.gif"); */
+  background-image: url("https://studio.code.org/v3/assets/w7J_re-EjVRac2BY48XrekJR-6Nd1R5OhGvpV4b0r5s/misslewithfire.gif");
   background-repeat: no-repeat;
   background-size: contain;
   cursor: pointer;
 }
 
 .alien {
-  background-image: url("https://i.pinimg.com/originals/a9/4c/bd/a94cbdfbcbb2601979e9f49c7927cb1a.gif");
-  background-color: rgb(4, 89, 31);
+  background-image: url("https://wdesk.ru/_ph/55/2/441590246.gif");
+  /* background-color: rgb(4, 89, 31); */
+  /* -webkit-transition: background-image 0.2s ease-in-out; */
+  transition: background-image 1s;
   background-repeat: no-repeat;
   background-size: contain;
   cursor: pointer;
 }
 .player {
-  background-color: red;
+  /* background-color: red; */
+  background-image: url("https://i.pinimg.com/originals/84/1f/39/841f39ac405ff3d8cc2c0be00fcfbb98.gif");
   background-repeat: no-repeat;
   background-size: contain;
   cursor: pointer;
 }
 
 .explosion {
-  background-color: orange;
+  /* background-color: orange; */
+  background-image: url("https://i.gifer.com/3IsK.gif");
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
+  cursor: pointer;
+}
+
+.alienbullet {
+  background-color: violet;
+  background-repeat: no-repeat;
+  background-size: cover;
   cursor: pointer;
 }
