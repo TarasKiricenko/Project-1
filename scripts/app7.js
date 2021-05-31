@@ -15,13 +15,13 @@ function init() {
   const alienClasss = 'alien'
   const bulletClass = 'bullet'
   const explosionClass = 'explosion'
-  let startingAlienPositionArray = [0]
+  const startingAlienPositionArray = [0,1,2,3,4]
   // let startingAlienPositionArray = [0,2,4,6,8,10,12,14,21,23,25,27,29,31,33,40,42,44,46,48,50,52,54]
-  console.log(startingAlienPositionArray.length)
-  const aliensAfterExplosion = []
+  // console.log(startingAlienPositionArray.length)
   const startingPlayerPosition = 389
   let currentPlayerPosition = 389
   let currentBulletPosition
+  // let speedOfAliensToMove = 200
   // FUNCTIONS GONNA WRITE AS MANY
   function createGrid() {
     for (let i = 0; i < cellCount; i ++) {
@@ -52,7 +52,7 @@ function init() {
 
   function setMoveAliensBorders(){
     for (let i = 0; i < cellCount; i++) {
-      if (cells[i].innerText % width === 19) {
+      if (cells[i].innerText % width === width - 1) {
         cells[i].classList.add('rightborder')
       } 
       if (cells[i].innerText % width === 0) {
@@ -61,20 +61,17 @@ function init() {
     }
   }
   setMoveAliensBorders()
-
-  function moveAliens() {
+  
+  function moveAliensRight() {
     removeAliens()
-    for (let i = 0; i < startingAlienPositionArray.length; i++) 
+    for (let i = 0; i < startingAlienPositionArray.length; i++) {
       startingAlienPositionArray[i] += 1
-    if ((startingAlienPositionArray - ((width / 2) - 1)) % width === 10) {
-      clearTimeout(moveAliens)
     }
-    // if (startingAlienPositionArray[i].classList.contains('rightborder')) {
-    //   startingAlienPositionArray[i]
-    // }
+    // startingAlienPositionArray[i] += 1
+    // console.log(cells[i].innerText % width === width - 1)
     createAliens()
   }
-  const intervalMoveAliens = setInterval(moveAliens, 1000)
+  const intervalMoveAliensRight = setInterval(moveAliensRight, 400)
   // function moveAliensRight() {
   //   console.log(currentAlienPositionArray)
   //   removeAliens()
@@ -132,11 +129,15 @@ function init() {
 
   function moveBullet() {
     for (let i = 0; i < cellCount; i++) {
-      if (cells[i].classList.contains(bulletClass)) {
+      if (cells[i].classList.contains(bulletClass) ) {
         cells[i].classList.remove(bulletClass)
         cells[i - width].classList.add(bulletClass)
         currentBulletPosition = cells[i - width]
-        
+        // if (currentBulletPosition.classList.contains(bulletClass) && cells[i].innerText < width) {
+        //   console.log('bullet is at bottom line')
+        //   cells[i].classList.remove(bulletClass)
+        // }
+        // break
         if (currentBulletPosition.classList.contains(bulletClass) && cells[i].innerText < 20) {
           console.log('bullet is at bottom line') //! bug here, it was not working in the previous version like this
           cells[i].classList.remove(bulletClass)
@@ -146,6 +147,8 @@ function init() {
     }
   }
   const intervalMoveBullet = setInterval(moveBullet, 100)
+
+
 
   function explosionDetection() {
     for (let i = 0; i < cellCount; i++) {
@@ -170,6 +173,7 @@ function init() {
         if (startingAlienPositionArray.length === 0) {
           window.alert('You win')
           window.location.reload()
+          // speed = 500
           window.alert('Next Level')
         }
         
