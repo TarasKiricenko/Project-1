@@ -15,7 +15,8 @@ function init() {
   const alienClasss = 'alien'
   const bulletClass = 'bullet'
   const explosionClass = 'explosion'
-  let startingAlienPositionArray = [0,2,4,6,8,10,12,14,21,23,25,27,29,31,33,40,42,44,46,48,50,52,54]
+  let startingAlienPositionArray = [0]
+  // let startingAlienPositionArray = [0,2,4,6,8,10,12,14,21,23,25,27,29,31,33,40,42,44,46,48,50,52,54]
   console.log(startingAlienPositionArray.length)
   const aliensAfterExplosion = []
   const startingPlayerPosition = 389
@@ -72,9 +73,8 @@ function init() {
     //   startingAlienPositionArray[i]
     // }
     createAliens()
-    
   }
-  const intervalMoveAliens = setInterval(moveAliens, 970)
+  const intervalMoveAliens = setInterval(moveAliens, 1000)
   // function moveAliensRight() {
   //   console.log(currentAlienPositionArray)
   //   removeAliens()
@@ -116,9 +116,9 @@ function init() {
       currentPlayerPosition++
     } else if (key === 37 && currentPlayerPosition % width !== 0) {
       currentPlayerPosition--
-    } else {
-      console.log('INVALID KEY')
-    } 
+    } //else {
+    //   console.log('INVALID KEY')
+    // } 
     addPlayer(currentPlayerPosition)
   }
 
@@ -156,9 +156,21 @@ function init() {
         cells[i].classList.remove(bulletClass)
         spanValue.innerText = spanValueNumber
         cells[i].classList.add(explosionClass)
-        startingAlienPositionArray.pop()
+        console.log(cells[i])
+        console.log(startingAlienPositionArray)
+        console.log(cells[i].innerText)
+        console.log(typeof(cells[i].innerText))
+        const kill = parseFloat(cells[i].innerText)
+        console.log(startingAlienPositionArray)
+        const index = startingAlienPositionArray.indexOf(kill)
+        if (index > -1) {
+          startingAlienPositionArray.splice(index, 1)
+        }
+        console.log(startingAlienPositionArray)
         if (startingAlienPositionArray.length === 0) {
           window.alert('You win')
+          window.location.reload()
+          window.alert('Next Level')
         }
         
 
