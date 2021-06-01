@@ -154,7 +154,7 @@ span {
 }
 
 .alienbullet {
-  /* background-color: violet; */
+  background-color: violet;
   background-repeat: no-repeat;
   background-size: cover;
   cursor: pointer;
