@@ -4,6 +4,9 @@
 }
 
 body {
+  background-image: url();
+  display: flex;
+  flex-direction: column;
   height: 100vh;
   margin: 0;
 }
@@ -11,14 +14,65 @@ body {
 section {
   display: flex;
   justify-content: space-around;
+  flex-grow: 4;
+  /* justify-content: center; */
+  /* align-content: center; */
+  /* align-self: center; */
+}
+
+button:hover {
+  transform: scale(1.10);
+  animation: ease-in-out;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  flex-grow: 8;
+}
+
+button {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-self: center;
+  flex-grow: 3;
 }
 
 .game-name {
   font-family: 'Monoton', cursive;
+  /* margin-top: 60px; */
+  font-size: 36px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-self: center;
+  flex-grow: 6;
+  justify-self: center;
+
 }
+
+.score-div {
+  /* display: flex; */
+  justify-content: center;
+  align-content: center;
+  align-self: center;
+  flex-grow: 3;
+  display: flex;
+}
+
+span {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  align-content: center;
+  margin: 0, 15px;
+
+}
+
 .grid-wrapper {
   /* background-color: turquoise; */
-  height: 100vh;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,7 +102,7 @@ section {
 }
 
 .grid div.player {
-  background-color: red;
+  /* background-color: red; */
   /* background-image: url('../assets/cat.png'); */
   background-repeat: no-repeat;
   background-size: contain;
@@ -83,7 +137,9 @@ section {
 }
 .player {
   /* background-color: red; */
-  background-image: url("https://i.pinimg.com/originals/84/1f/39/841f39ac405ff3d8cc2c0be00fcfbb98.gif");
+  /* background-image: url("https://i.pinimg.com/originals/84/1f/39/841f39ac405ff3d8cc2c0be00fcfbb98.gif"); */
+  /* background-image: url("https://64.media.tumblr.com/0d766c040c5b69344e7d4632dcbce296/tumblr_pon3vrZDls1xl8uk6o2_400.gifv"); */
+  background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5dcb4768-5633-4212-b3d9-54bce42b9341/d7ur00h-abfc9654-d9e5-466b-af7e-cc26024cf97b.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzVkY2I0NzY4LTU2MzMtNDIxMi1iM2Q5LTU0YmNlNDJiOTM0MVwvZDd1cjAwaC1hYmZjOTY1NC1kOWU1LTQ2NmItYWY3ZS1jYzI2MDI0Y2Y5N2IuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.JLvDzkSipZ0IyxemYnefmDXB4h5sHXTYivSAWVt9UhA");
   background-repeat: no-repeat;
   background-size: contain;
   cursor: pointer;
@@ -98,7 +154,7 @@ section {
 }
 
 .alienbullet {
-  background-color: violet;
+  /* background-color: violet; */
   background-repeat: no-repeat;
   background-size: cover;
   cursor: pointer;
