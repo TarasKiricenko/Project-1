@@ -24,6 +24,7 @@ function init() {
   const bulletClass = 'bullet'
   const explosionClass = 'explosion'
   const alienBulletClass = 'alienbullet'
+  const playerExplosion = 'playerexplosion'
   // const startingAlienPositionArray = [0,1,2,3,4]
   const startingAlienPositionArray = [0,2,4,6,8,10,12,14,21,23,25,27,29,31,33,40,42,44,46,48,50,52,54]
   // console.log(startingAlienPositionArray.length)
@@ -143,7 +144,9 @@ function init() {
         console.log('Player was hit!')
         livesLeft --
         console.log(livesLeft)
-        
+        // cells[parseFloat(el.dataset.id)].classList.remove(playerCLass)
+        // cells[parseFloat(el.dataset.id)].classList.remove(alienBulletClass)
+        cells[parseFloat(el.dataset.id)].classList.add(playerExplosion)
         if (livesLeft === 2) {
           window.alert('You got hit! You have 2 lives left')
           livesLeftNumber.innerText -- 
@@ -320,9 +323,9 @@ function init() {
 
   function removeExplosion() {
     for (let i = 0; i < cellCount; i++) {
-      if (cells[i].classList.contains(explosionClass)) {
+      if (cells[i].classList.contains(explosionClass) || cells[i].classList.contains(playerExplosion)) {
         setTimeout(() => {
-          cells[i].classList.remove(explosionClass)
+          cells[i].classList.remove(explosionClass, playerExplosion)
         }, 700)
       }
     }

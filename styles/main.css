@@ -196,4 +196,10 @@ p {
   cursor: pointer;
   transform: rotate(180deg);
 }
-/*/ https://static.wikia.nocookie.net/cnc_gamepedia_en/images/9/9a/Nuke_animation.gif/revision/latest?cb=20180801165232
+
+.playerexplosion {
+  background-image: url("https://static.wikia.nocookie.net/cnc_gamepedia_en/images/9/9a/Nuke_animation.gif/revision/latest?cb=20180801165232");
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
+}
