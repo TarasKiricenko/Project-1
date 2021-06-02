@@ -11,6 +11,10 @@ function init() {
   const spanValue = document.querySelector('span')
   parseFloat(spanValue)
   let spanValueNumber = 0
+  const livesLeftNumber = document.querySelector('number')
+  parseFloat(livesLeftNumber)
+  console.log(livesLeftNumber)
+  console.log(typeof(livesLeftNumber))
   const width = 20
   const cellCount = width * width
   const cells = []
@@ -26,6 +30,8 @@ function init() {
   const startingPlayerPosition = 389
   let currentPlayerPosition = 389
   let livesLeft = 3
+  // console.log(livesLeft)
+  // console.log(typeof(livesLeft))
   let currentBulletPosition
   let currentAlienBulletPosition
   // let speedOfAliensToMove = 200
@@ -74,7 +80,7 @@ function init() {
     removeAliens()
     for (let i = 0; i < startingAlienPositionArray.length; i++) {
       startingAlienPositionArray[i] += 1
-      console.log(startingAlienPositionArray[i])
+      // console.log(startingAlienPositionArray[i])
       if (cells[startingAlienPositionArray[i]].classList.contains('rightborder')) {
         // console.log('hi')
         // clearInterval(intervalMoveAliensRight)
@@ -137,12 +143,20 @@ function init() {
         console.log('Player was hit!')
         livesLeft --
         console.log(livesLeft)
-        if (livesLeft === 2)
-
-          window.location.reload()
-          window.alert('You got hit!')
-          
         
+        if (livesLeft === 2) {
+          window.alert('You got hit! You have 2 lives left')
+          livesLeftNumber.innerText -- 
+        }
+        if (livesLeft === 1) {
+          window.alert('Gotta be careful, one life left!')
+          livesLeftNumber.innerText --
+        }
+        if (livesLeft === 0) {
+          window.alert('You are down! Start again to protect the Earth!')
+          livesLeftNumber.innerText --
+          window.location.reload()
+        }
         
 
       }
@@ -246,7 +260,7 @@ function init() {
         // console.log(currentBulletPosition)
         if (parseFloat(currentBulletPosition.innerText >= 0)) {
           cells[i - width].classList.add(bulletClass)
-          console.log(i)
+          // console.log(i)
           // console.log(typeof(i))
           
         }
