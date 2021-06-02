@@ -1,6 +1,8 @@
 function init() {
   console.log('JS running')
   document.querySelector('button')
+  const hiddenButton = document.querySelector('button')
+  const hiddenClass = 'hiddenclass'
   window.alert('Welcome to Space Invaders game! \nUse left and right arrows to cotrol the player, press "S" to shoot.\nPress start button to start the game.')
   function startGame() {
   // OK, lets start from beginning.
@@ -13,8 +15,8 @@ function init() {
     let spanValueNumber = 0
     const livesLeftNumber = document.querySelector('number')
     parseFloat(livesLeftNumber)
-    console.log(livesLeftNumber)
-    console.log(typeof(livesLeftNumber))
+    // console.log(livesLeftNumber)
+    // console.log(typeof(livesLeftNumber))
     const width = 20
     const cellCount = width * width
     const cells = []
@@ -25,8 +27,11 @@ function init() {
     const explosionClass = 'explosion'
     const alienBulletClass = 'alienbullet'
     const playerExplosion = 'playerexplosion'
+    // const hiddenClass = 'hiddenclass'
     // const startingAlienPositionArray = [0,1,2,3,4]
-    const startingAlienPositionArray = [0,2,4,6,8,10,12,14,21,23,25,27,29,31,33,40,42,44,46,48,50,52,54]
+    // const startingAlienPositionArray = [0,2,4,6,8,10,12,14,21,23,25,27,29,31,33,40,42,44,46,48,50,52,54]
+    const startingAlienPositionArray = [0,2,4,6,8,10,12,14,16,18,21,23,25,27,29,31,33,35,37,40,42,44,46,48,50,52,54,56,58]
+    // const startingAlienPositionArray = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54]
     // console.log(startingAlienPositionArray.length)
     const startingPlayerPosition = 389
     let currentPlayerPosition = 389
@@ -151,11 +156,12 @@ function init() {
         // break
         }
         if (cells[parseFloat(el.dataset.id)].classList.contains(playerCLass)) {
-          console.log('Player was hit!')
+          cells[parseFloat(el.dataset.id)].classList.remove(alienBulletClass)
+          // console.log('Player was hit!')
           livesLeft --
-          console.log(livesLeft)
+          // console.log(livesLeft)
           // cells[parseFloat(el.dataset.id)].classList.remove(playerCLass)
-          // cells[parseFloat(el.dataset.id)].classList.remove(alienBulletClass)
+          
           cells[parseFloat(el.dataset.id)].classList.add(playerExplosion)
           if (livesLeft === 2) {
             window.alert('You got hit! You have 2 lives left')
@@ -363,7 +369,12 @@ function init() {
   }
   document.querySelector('button').addEventListener('click', startGame)
   document.querySelector('button').addEventListener('click', playMusic)
+  document.querySelector('button').addEventListener('click', hideStartButton)
 
+  function hideStartButton() {
+    hiddenButton.classList.add(hiddenClass)
+
+  }
   function playMusic() { 
     document.getElementById('soundtrack').play() 
   }
