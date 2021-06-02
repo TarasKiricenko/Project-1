@@ -120,7 +120,9 @@ function init() {
         // console.log(startingAlienPositionArray.length)
       // if (!startingAlienPositionArray.length === 0) {// console.log(startBulletFrom)
         // console.log(startingAlienPositionArray.length)
+        // console.log(startBulletFrom)
         cells[startBulletFrom].classList.add(alienBulletClass)
+        // cells[startBulletFrom + (Math.floor(Math.random() * startingAlienPositionArray.length))].classList.add(alienBulletClass)
       // }
       }
       // if (startingAlienPositionArray.length === 0) {
@@ -130,8 +132,9 @@ function init() {
     // if (cells[i].classList)
     }
     // const intervalAddAlienBullet = setTimeout(addAlienBullet, 2000)
-    addAlienBullet()
-    const intervalAddAlienBullet = setInterval(addAlienBullet, 2000)
+    addAlienBullet() //(Math.floor(Math.random() * startingAlienPositionArray.length))
+    const intervalAddAlienBullet = setInterval(addAlienBullet, (Math.floor(Math.random() * 1000)))
+    // const intervalAddAlienBullet = setInterval(addAlienBullet, 2000)
 
     function moveAlienBullet() {
       const alienBulletArray = document.querySelectorAll('.alienbullet')

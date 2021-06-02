@@ -10,6 +10,9 @@ body {
   height: 100vh;
   margin: 0;
   color: rgb(4, 107, 197);
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* background-attachment: fixed; */
   background: linear-gradient(to top, rgba(255,255,255,0) 20%,
               rgba(255,255,255,1)), url(https://cbsnews2.cbsistatic.com/hub/i/r/2016/01/20/2904a1ed-3b67-484e-9fe8-2d7a1b755280/thumbnail/1200x630g8/432a47e9db6385f9ec6177eacea70d4b/istock000061557686medium.jpg);
 }
@@ -55,7 +58,10 @@ p {
   /* justify-content: center; */
   /* align-content: center; */
   align-self: center;
-  padding-right: 10px;
+  justify-content: center;
+  align-content: center;
+  /* padding-right: 10px; */
+  flex-grow: 3;
 }
 
 .game-name {
