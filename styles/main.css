@@ -188,8 +188,12 @@ p {
 }
 
 .alienbullet {
-  background-color: violet;
+  /* background-color: violet; */
+  /* background-image: url("https://www.clipartmax.com/png/middle/131-1319142_exploding-bomb-gif-animated.png"); */
+  background-image: url("https://lh3.googleusercontent.com/proxy/t4zyJvJcg5Y2J6mDlRClbx3_RrNcUfxquWMwyYI8x94UCPgsYkhIxEljw9vmhKoSdzT3Ql5FmTLkcwS-67cW7TnnrNvJNWWd4yhj0AJgfw3i");
   background-repeat: no-repeat;
   background-size: cover;
   cursor: pointer;
+  transform: rotate(180deg);
 }
+/*/ https://static.wikia.nocookie.net/cnc_gamepedia_en/images/9/9a/Nuke_animation.gif/revision/latest?cb=20180801165232
