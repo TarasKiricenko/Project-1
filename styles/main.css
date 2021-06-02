@@ -5,6 +5,7 @@
 
 body {
   /* background-image: url("https://cbsnews2.cbsistatic.com/hub/i/r/2016/01/20/2904a1ed-3b67-484e-9fe8-2d7a1b755280/thumbnail/1200x630g8/432a47e9db6385f9ec6177eacea70d4b/istock000061557686medium.jpg"); */
+  /* background-image: url("https://wallpaperaccess.com/full/893637.jpg"); */
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -14,7 +15,7 @@ body {
   background-repeat: no-repeat;
   /* background-attachment: fixed; */
   background: linear-gradient(to top, rgba(255,255,255,0) 20%,
-              rgba(255,255,255,1)), url(https://cbsnews2.cbsistatic.com/hub/i/r/2016/01/20/2904a1ed-3b67-484e-9fe8-2d7a1b755280/thumbnail/1200x630g8/432a47e9db6385f9ec6177eacea70d4b/istock000061557686medium.jpg);
+              rgba(255,255,255,1)), url(https://wallpaperaccess.com/full/893637.jpg);
 }
 
 section {
@@ -171,7 +172,10 @@ p {
 }
 
 .alien {
-  background-image: url("https://wdesk.ru/_ph/55/2/441590246.gif");
+  /* background-image: url("https://wdesk.ru/_ph/55/2/441590246.gif"); */
+  /* background-image: url("https://i2.wp.com/media.giphy.com/media/2Wf4qYgMmou4zjg9qX/giphy.gif"); */
+  /* background-image: url("https://img1.picmix.com/output/stamp/normal/4/7/9/7/1557974_0c054.gif"); */
+  background-image: url("https://i.gifer.com/origin/24/2432cf5ff737ad7d1794a29d042eb02e_w200.gif");
   /* background-color: rgb(4, 89, 31); */
   /* -webkit-transition: background-image 0.2s ease-in-out; */
   transition: background-image 1s;
@@ -229,6 +233,13 @@ p {
 
 .playerexplosion {
   background-image: url("https://static.wikia.nocookie.net/cnc_gamepedia_en/images/9/9a/Nuke_animation.gif/revision/latest?cb=20180801165232");
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
+}
+
+.bulletcollision {
+  background-image: url("https://gifimage.net/wp-content/uploads/2017/11/explosion-animated-gif-transparent-1.gif");
   background-repeat: no-repeat;
   background-size: cover;
   cursor: pointer;
