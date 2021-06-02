@@ -1,8 +1,8 @@
 function init() {
   console.log('JS running')
   document.querySelector('button')
-  // window.alert('Press Start button to start the game')
-  // function startGame() {
+  window.alert('Welcome to Space Invaders game! \nUse left and right arrows to cotrol the player, press "S" to shoot.\nPress start button to start the game.')
+  function startGame() {
   // OK, lets start from beginning.
   // CONSTANTS AND LETS
     
@@ -25,6 +25,7 @@ function init() {
   // console.log(startingAlienPositionArray.length)
   const startingPlayerPosition = 389
   let currentPlayerPosition = 389
+  let livesLeft = 3
   let currentBulletPosition
   let currentAlienBulletPosition
   // let speedOfAliensToMove = 200
@@ -40,7 +41,7 @@ function init() {
   }
   createGrid()
 
-  function createAliens(event) {
+  function createAliens() {
     for (let i = 0; i < startingAlienPositionArray.length; i++) {
       // console.log(startingAlienPositionArray[i]) 
       // console.log(cells[i])
@@ -73,6 +74,7 @@ function init() {
     removeAliens()
     for (let i = 0; i < startingAlienPositionArray.length; i++) {
       startingAlienPositionArray[i] += 1
+      console.log(startingAlienPositionArray[i])
       if (cells[startingAlienPositionArray[i]].classList.contains('rightborder')) {
         // console.log('hi')
         // clearInterval(intervalMoveAliensRight)
@@ -120,16 +122,29 @@ function init() {
   function moveAlienBullet() {
     const alienBulletArray = document.querySelectorAll('.alienbullet')
     // console.log('hi')
-    console.log(alienBulletArray)
+    // console.log(alienBulletArray)
     for (let i = 0; i < alienBulletArray.length; i++) {
       const el = alienBulletArray[i]
-      console.log(el.dataset.id, i)
+      // console.log(el.dataset.id, i)
       el.classList.remove(alienBulletClass) 
       // cells[parseFloat(el.dataset.id) + width].classList.add(alienBulletClass)      
       if (parseFloat(el.dataset.id) + width < cellCount) {
         // el.classList.remove(alienBulletClass) 
         cells[parseFloat(el.dataset.id) + width].classList.add(alienBulletClass)      
         // break
+      }
+      if (cells[parseFloat(el.dataset.id)].classList.contains(playerCLass)) {
+        console.log('Player was hit!')
+        livesLeft --
+        console.log(livesLeft)
+        if (livesLeft === 2)
+
+          window.location.reload()
+          window.alert('You got hit!')
+          
+        
+        
+
       }
         
           
@@ -146,7 +161,7 @@ function init() {
     }
   }
   // setTimeout(moveAlienBullet, 1000)
-  const intervalMoveAlienBullet = setInterval(moveAlienBullet, 300)
+  const intervalMoveAlienBullet = setInterval(moveAlienBullet, 100)
     
   // const intervalAddAlienBullet = setInterval(addAlienBullet, (Math.floor(Math.random() * 2000)))
   //! need to adjust according to game play.
@@ -219,20 +234,36 @@ function init() {
 
   function moveBullet() {
     for (let i = 0; i < cellCount; i++) {
-      if (cells[i].classList.contains(bulletClass) ) {
+      if (cells[i].classList.contains(bulletClass) && parseFloat(currentBulletPosition.innerText) >= 0) {
         cells[i].classList.remove(bulletClass)
         cells[i - width].classList.add(bulletClass)
         currentBulletPosition = cells[i - width]
         // if (currentBulletPosition.classList.contains(bulletClass) && cells[i].innerText < width) {
         //   console.log('bullet is at bottom line')
         //   cells[i].classList.remove(bulletClass)
-        // }
-        // break
-        if (currentBulletPosition.classList.contains(bulletClass) && cells[i].innerText < 20) {
-          console.log('bullet is at bottom line') //! bug here, it was not working in the previous version like this
-          cells[i].classList.remove(bulletClass)
-          break
+        // const el = alienBulletArray[i]
+        // console.log(i)
+        // console.log(currentBulletPosition)
+        if (parseFloat(currentBulletPosition.innerText >= 0)) {
+          cells[i - width].classList.add(bulletClass)
+          console.log(i)
+          // console.log(typeof(i))
+          
         }
+      // // console.log(el.dataset.id, i)
+      // el.classList.remove(alienBulletClass) 
+      // // cells[parseFloat(el.dataset.id) + width].classList.add(alienBulletClass)      
+      // if (parseFloat(el.dataset.id) + width < cellCount) {
+      //   // el.classList.remove(alienBulletClass) 
+      //   cells[parseFloat(el.dataset.id) + width].classList.add(alienBulletClass)      
+      //   // break
+      // }
+        // break
+        // if (currentBulletPosition.classList.contains(bulletClass) && cells[i].innerText < 20) {
+        //   console.log('bullet is at bottom line') //! bug here, it was not working in the previous version like this
+        //   cells[i].classList.remove(bulletClass)
+        //   break
+        // }
       }
     }
   }
@@ -318,8 +349,8 @@ function init() {
   
   document.addEventListener('keyup', addBullet)
   document.addEventListener('keyup', movePlayer)
-  // }
-  // document.querySelector('button').addEventListener('click', startGame)
+  }
+  document.querySelector('button').addEventListener('click', startGame)
   
 }
 window.addEventListener('DOMContentLoaded', init)
