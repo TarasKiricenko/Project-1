@@ -219,11 +219,13 @@ p {
 .alienbullet {
   /* background-color: violet; */
   /* background-image: url("https://www.clipartmax.com/png/middle/131-1319142_exploding-bomb-gif-animated.png"); */
-  background-image: url("https://lh3.googleusercontent.com/proxy/t4zyJvJcg5Y2J6mDlRClbx3_RrNcUfxquWMwyYI8x94UCPgsYkhIxEljw9vmhKoSdzT3Ql5FmTLkcwS-67cW7TnnrNvJNWWd4yhj0AJgfw3i");
+  background-image: url("http://cdn.lowgif.com/full/2df7f7b7659b1439-.gif");
+  /* background-image: url("https://lh3.googleusercontent.com/proxy/t4zyJvJcg5Y2J6mDlRClbx3_RrNcUfxquWMwyYI8x94UCPgsYkhIxEljw9vmhKoSdzT3Ql5FmTLkcwS-67cW7TnnrNvJNWWd4yhj0AJgfw3i"); */
   background-repeat: no-repeat;
-  background-size: cover;
+  /* background-size: cover; */
+  background-size: contain;
   cursor: pointer;
-  transform: rotate(180deg);
+  /* transform: rotate(180deg); */
 }
 
 .hiddenclass {

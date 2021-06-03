@@ -3,7 +3,7 @@ function init() {
   document.querySelector('button')
   const hiddenButton = document.querySelector('button')
   const hiddenClass = 'hiddenclass'
-  window.alert('Welcome to Space Invaders game! \nUse left and right arrows to cotrol the player, press "S" to shoot.\nPress start button to start the game.')
+  window.alert('Welcome to Space Invaders game! \nUse left and right arrows to control the player, press "S" to shoot.\nPress start button to start the game.')
   function startGame() {
     const grid = document.querySelector('.grid')
     const spanValue = document.querySelector('span')
@@ -146,8 +146,12 @@ function init() {
     function moveBullet() {
       for (let i = 0; i < cellCount; i++) {
         if (cells[i].classList.contains(bulletClass)) {
-          cells[i].classList.remove(bulletClass)
-          cells[i - width].classList.add(bulletClass)
+          if (i >= width) {
+            cells[i].classList.remove(bulletClass)
+            cells[i - width].classList.add(bulletClass)
+          } else {
+            cells[i].classList.remove(bulletClass)
+          }
         } 
       }
     }
