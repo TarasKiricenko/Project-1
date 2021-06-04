@@ -4,8 +4,6 @@
 }
 
 body {
-  /* background-image: url("https://cbsnews2.cbsistatic.com/hub/i/r/2016/01/20/2904a1ed-3b67-484e-9fe8-2d7a1b755280/thumbnail/1200x630g8/432a47e9db6385f9ec6177eacea70d4b/istock000061557686medium.jpg"); */
-  /* background-image: url("https://wallpaperaccess.com/full/893637.jpg"); */
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -13,22 +11,17 @@ body {
   color: rgb(4, 107, 197);
   background-size: cover;
   background-repeat: no-repeat;
-  /* background-attachment: fixed; */
-  background: linear-gradient(to top, rgba(255,255,255,0) 20%,
-              rgba(255,255,255,1)), url(https://wallpaperaccess.com/full/893637.jpg);
+  background: linear-gradient(to top, rgba(255,255,255,0) 20%, rgba(255,255,255,1)), url(../images/background.jpeg);
 }
 
 section {
   display: flex;
   justify-content: space-around;
   flex-grow: 4;
-  /* justify-content: center; */
-  /* align-content: center; */
-  /* align-self: center; */
 }
 
 button:hover {
-  transform: scale(1.10);
+  transform: scale(1.30);
   animation: ease-in-out;
 }
 
@@ -39,13 +32,11 @@ main {
 }
 
 button {
-  /* display: flex; */
-  /* align-content: center;
-  justify-content: center;
-  align-self: center;
-  flex-grow: 3; */
   color: whitesmoke;
   background-color: rgb(9, 78, 156);
+  border-radius: 6px;
+  border: none;
+  padding: 10px 20px;
 }
 
 .button {
@@ -54,8 +45,6 @@ button {
   justify-content: center;
   align-self: center;
   flex-grow: 3;
-  /* background-color: olivedrab; */
-  /* Pulse class and keyframe animation */
 	-webkit-animation: pulse linear 1s infinite;
 	animation: pulse linear 1s infinite;
 }
@@ -72,19 +61,15 @@ button {
 
 
 p {
-  /* display: flex; */
-  /* justify-content: center; */
-  /* align-content: center; */
   align-self: center;
   justify-content: center;
   align-content: center;
-  /* padding-right: 10px; */
   flex-grow: 3;
+  font-weight: bolder;
 }
 
 .game-name {
   font-family: 'Monoton', cursive;
-  /* margin-top: 60px; */
   font-size: 36px;
   display: flex;
   justify-content: center;
@@ -96,25 +81,14 @@ p {
 }
 
 .score-div {
-  /* display: flex; */
   justify-content: center;
   align-content: center;
   align-self: center;
   flex-grow: 3;
-  /* display: flex; */
+  font-weight: bolder;
 }
 
-/* span {
-  /* display: flex; */
-  /* justify-content: center; */
-  /* align-self: center; */
-  /* align-content: center; */
-  /* margin: 0, 15px; */
-
-/* } */ 
-
 .grid-wrapper {
-  /* background-color: turquoise; */
   height: 100%;
   display: flex;
   justify-content: center;
@@ -123,8 +97,7 @@ p {
 
 .grid {
   align-items: center;
-  /* background-color: turquoise; */
-  background-image: url("https://acegif.com/wp-content/gifs/starfall-gif-62.gif");
+  background-image: url(../images/gridbackground.gif);
   background-repeat: no-repeat;
   background-size: contain;
 
@@ -140,7 +113,6 @@ p {
 }
 
 .grid div {
-  /* border: 1px solid lightgrey; */
   flex-grow: 1;
   height: 5%;
   width: 5%;
@@ -148,44 +120,32 @@ p {
 }
 
 .grid div.player {
-  /* background-color: red; */
-  /* background-image: url('../assets/cat.png'); */
   background-repeat: no-repeat;
   background-size: contain;
   cursor: pointer;
 }
 
 .grid div.bullet {
-  /* background-color: blue; */
   background-repeat: no-repeat;
   background-size: contain;
   cursor: pointer;
 }
 
 .bullet {
-  /* background-color: blue; */
-  /* background-image: url("https://lh3.googleusercontent.com/proxy/zTP_Ikph68wmH43dGSGb06ZF-tLaiT1vZNCkiVB5nuxiWOaN-ImLFLv4QTuh9MJZHtCNXPp4siEzjq3O_AY-SW0Gnp_A9MQjWjsR9PgNZHhM"); */
-  /* background-image: url("http://clipart-library.com/img/1980562.gif"); */
-  background-image: url("https://studio.code.org/v3/assets/w7J_re-EjVRac2BY48XrekJR-6Nd1R5OhGvpV4b0r5s/misslewithfire.gif");
+  background-image: url(../images/playerbullet.gif);
   background-repeat: no-repeat;
   background-size: contain;
   cursor: pointer;
 }
 
 .alien {
-  /* background-image: url("https://wdesk.ru/_ph/55/2/441590246.gif"); */
-  /* background-image: url("https://i2.wp.com/media.giphy.com/media/2Wf4qYgMmou4zjg9qX/giphy.gif"); */
-  /* background-image: url("https://img1.picmix.com/output/stamp/normal/4/7/9/7/1557974_0c054.gif"); */
-  background-image: url("https://i.gifer.com/origin/24/2432cf5ff737ad7d1794a29d042eb02e_w200.gif");
-  /* background-color: rgb(4, 89, 31); */
-  /* -webkit-transition: background-image 0.2s ease-in-out; */
+  background-image: url(../images/alien.gif);
   transition: background-image 1s;
   background-repeat: no-repeat;
   background-size: contain;
   cursor: pointer;
   width:200px;
   height: 200px;
-  /* background: red; */
   -webkit-animation: fadeinout .5s linear forwards;
   animation: fadeinout .5s linear forwards;
 }
@@ -200,49 +160,54 @@ p {
 50% { opacity: 1; }
 }
 .player {
-  /* background-color: red; */
-  /* background-image: url("https://i.pinimg.com/originals/84/1f/39/841f39ac405ff3d8cc2c0be00fcfbb98.gif"); */
-  /* background-image: url("https://64.media.tumblr.com/0d766c040c5b69344e7d4632dcbce296/tumblr_pon3vrZDls1xl8uk6o2_400.gifv"); */
-  background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5dcb4768-5633-4212-b3d9-54bce42b9341/d7ur00h-abfc9654-d9e5-466b-af7e-cc26024cf97b.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzVkY2I0NzY4LTU2MzMtNDIxMi1iM2Q5LTU0YmNlNDJiOTM0MVwvZDd1cjAwaC1hYmZjOTY1NC1kOWU1LTQ2NmItYWY3ZS1jYzI2MDI0Y2Y5N2IuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.JLvDzkSipZ0IyxemYnefmDXB4h5sHXTYivSAWVt9UhA");
+  background-image: url(../images/player.gif);
   background-repeat: no-repeat;
   background-size: contain;
   cursor: pointer;
+  -webkit-animation: pulsing linear 1s infinite;
+	animation: pulsing linear 1s infinite;
+}
+@-webkit-keyframes pulsing {
+  0% {transform: scale(1.0)}
+  50% {transform: scale(1.5)}
+  100% {transform: scale(1.0)}
+}
+@keyframes pulsing {
+  0% {transform: scale(1.0)}
+  50% {transform: scale(1.5)}
+  100% {transform: scale(1.0)}
 }
 
+
 .explosion {
-  /* background-color: orange; */
-  background-image: url("https://i.gifer.com/3IsK.gif");
+  background-image: url(../images/alienexplosion.gif);
   background-repeat: no-repeat;
   background-size: cover;
   cursor: pointer;
 }
 
 .alienbullet {
-  /* background-color: violet; */
-  /* background-image: url("https://www.clipartmax.com/png/middle/131-1319142_exploding-bomb-gif-animated.png"); */
-  background-image: url("http://cdn.lowgif.com/full/2df7f7b7659b1439-.gif");
-  /* background-image: url("https://lh3.googleusercontent.com/proxy/t4zyJvJcg5Y2J6mDlRClbx3_RrNcUfxquWMwyYI8x94UCPgsYkhIxEljw9vmhKoSdzT3Ql5FmTLkcwS-67cW7TnnrNvJNWWd4yhj0AJgfw3i"); */
+  background-image: url(../images/alienbomb.gif);
   background-repeat: no-repeat;
-  /* background-size: cover; */
   background-size: contain;
   cursor: pointer;
-  /* transform: rotate(180deg); */
 }
 
 .hiddenclass {
+
   display: none;
   flex-grow: 0;
 }
 
 .playerexplosion {
-  background-image: url("https://static.wikia.nocookie.net/cnc_gamepedia_en/images/9/9a/Nuke_animation.gif/revision/latest?cb=20180801165232");
+  background-image: url(../images/playerexplosion.gif);
   background-repeat: no-repeat;
   background-size: cover;
   cursor: pointer;
 }
 
 .bulletcollision {
-  background-image: url("https://gifimage.net/wp-content/uploads/2017/11/explosion-animated-gif-transparent-1.gif");
+  background-image: url(../images/bulletcollision.gif);
   background-repeat: no-repeat;
   background-size: cover;
   cursor: pointer;

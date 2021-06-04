@@ -21,9 +21,7 @@ function init() {
     const alienBulletClass = 'alienbullet'
     const playerExplosion = 'playerexplosion'
     const bulletsCollideClass = 'bulletcollision'
-    // const startingAlienPositionArray = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,20,21,22,23,24,25,26,27,28,29,30,31,32,33,40,41,42,43,44,45,46,47,48,49,50,51,52,53]
     const startingAlienPositionArray = [0,2,4,6,8,10,12,14,16,18,21,23,25,27,29,31,33,35,37,40,42,44,46,48,50,52,54,56,58,61,63,65,67,69,71,73,75,77]
-    // const startingAlienPositionArray = [0,2,4,6,8,10,12,14,16,18,21,23,25,27,29,31,33,35,37,40,42,44,46,48,50,52,54,56,58]
     const startingPlayerPosition = 389
     let currentPlayerPosition = 389
     let livesLeft = 3
@@ -80,8 +78,7 @@ function init() {
         cells[startBulletFrom].classList.add(alienBulletClass)
       }
     }
-    const intervalAddAlienBullet = setInterval(addAlienBullet, 300)
-    // const intervalAddAlienBullet = setInterval(addAlienBullet, (Math.floor(Math.random() * 1000)))
+    const intervalAddAlienBullet = setInterval(addAlienBullet, 200)
 
     function moveAlienBullet() {
       const alienBulletArray = document.querySelectorAll('.alienbullet')
@@ -96,14 +93,17 @@ function init() {
           livesLeft --
           cells[parseFloat(el.dataset.id)].classList.add(playerExplosion)
           if (livesLeft === 2) {
+            playPlayerExplosionSound()
             window.alert('You got hit! You have 2 lives left')
             livesLeftNumber.innerText -- 
           }
           if (livesLeft === 1) {
+            playPlayerExplosionSound()
             window.alert('Gotta be careful, one life left!')
             livesLeftNumber.innerText --
           }
           if (livesLeft === 0) {
+            playPlayerExplosionSound()
             window.alert('You are down! Start again to protect the Earth!')
             livesLeftNumber.innerText --
             window.location.reload()
@@ -140,48 +140,15 @@ function init() {
     function addBullet(event) {
       const key = event.keyCode
       for (let i = 0; i < cellCount; i++) {
-       
-        // if (cells[i].classList.contains(bulletClass)) {
-          if (key === 83 && cells[i].classList.contains(bulletClass)) {
-            // window.alert('You cant shoot only if bullet leaves game field or hits the target!')
-            cells[i].classList.remove(bulletClass)
-            // window.confirm('you can only have one active bullet on screen')
-            // cells[i].classList.add(explosionClass)
-          } else if (key === 83) {
-            cells[currentPlayerPosition - width].classList.add(bulletClass)
-          }
-    //       // console.log(i)
-          
-    //   //   if (key === 83) {
-    //   //     cells[currentPlayerPosition - width].classList.add(bulletClass)
-    //   //     currentBulletPosition = cells[currentPlayerPosition - width]
-    //   //     playPlayerBulletMusic()
-    //   //     // if (key === 83) {
-    //   //     if (cells[i].classList.contains(bulletClass)) { 
-    //   //       break
-    //   // //     } 
-    //   //   }
-        // if (key === 83 && cells[i].classList.contains(bulletClass)) {
-        //   cells[currentPlayerPosition - width].classList.add(bulletClass)
-        //   // currentBulletPosition = cells[currentPlayerPosition - width]
-        //   playPlayerBulletMusic()
-        // } 
+        if (key === 83 && cells[i].classList.contains(bulletClass)) {
+          cells[i].classList.remove(bulletClass)
+        } else if (key === 83) {
+          cells[currentPlayerPosition - width].classList.add(bulletClass)
+          playPlayerBulletMusic()
+        }
       }
     }
-    // function runCreateBullet(event){
-    //   const key = event.keyCode
-    //   console.log
-    //   if (key === 83) {
-    //     createBullet()
-    //   }
-    // }
-    // const intervalRunCreateBullet = setTimeout(runCreateBullet, 1000)
 
-    // function createBullet() {
-    //   cells[currentPlayerPosition - width].classList.add(bulletClass)
-    //   currentBulletPosition = cells[currentPlayerPosition - width]
-    // }
-    
     function moveBullet() {
       for (let i = 0; i < cellCount; i++) {
         if (cells[i].classList.contains(bulletClass)) {
@@ -202,6 +169,7 @@ function init() {
           cells[i].classList.remove(bulletClass)
           cells[i].classList.remove(alienBulletClass)
           cells[i].classList.add(bulletsCollideClass)
+          playBulletsExplosion()
           setTimeout(() => {
             cells[i].classList.remove(bulletsCollideClass)
           }, 600)
@@ -220,17 +188,18 @@ function init() {
           cells[i].classList.remove(bulletClass)
           const kill = parseFloat(cells[i].innerText)
           const index = startingAlienPositionArray.indexOf(kill)
+          playExplosionSound()
           if (index > -1) {
             startingAlienPositionArray.splice(index, 1)
           }
           if (startingAlienPositionArray.length === 0) {
-            window.confirm('You win! Would you like to start again?')
+            window.alert('You win! Would you like to start again?')
             window.location.reload()
           }
         }
       }
     }
-    const intervalExplosionDetection = setInterval(explosionDetection, 20)
+    const intervalExplosionDetection = setInterval(explosionDetection, 1)
 
     function removeExplosion() {
       for (let i = 0; i < cellCount; i++) {
@@ -255,20 +224,32 @@ function init() {
     const intervalCollisionWithPlayer = setInterval(collisionWithPlayer, 20)
     
     document.addEventListener('keyup', addBullet)
-    // document.addEventListener('keydown', runCreateBullet)
     document.addEventListener('keyup', movePlayer)
   }
   document.querySelector('button').addEventListener('click', startGame)
-  document.querySelector('button').addEventListener('click', playMusic)
+  document.querySelector('button').addEventListener('click', playSoundtrackMusic)
   document.querySelector('button').addEventListener('click', hideStartButton)
 
   function hideStartButton() {
     hiddenButton.classList.add(hiddenClass)
 
   }
-  function playMusic() { 
+  function playSoundtrackMusic() { 
     document.getElementById('soundtrack').play() 
   }
+
+  function playExplosionSound() {
+    document.getElementById('explosion').play()
+  }
+
+  function playPlayerExplosionSound() {
+    document.getElementById('playerExplosion').play()
+  }
+
+  function playBulletsExplosion() {
+    document.getElementById('bulletsExplosion').play()
+  }
+
   function playPlayerBulletMusic() {
     document.getElementById('bulletsound').play()
   }
