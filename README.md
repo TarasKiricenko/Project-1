@@ -39,6 +39,7 @@ Second function is running on interval, and moves the bullet up to the top of ga
 <li>This</li>
 <br>
 This functions defines what happens when you hit the alien:
+<br>
 * It checks, if first of all you do have 2 classes in one "cell" first
 <img width="837" alt="Screenshot 2021-08-11 at 14 46 24" src="https://user-images.githubusercontent.com/81250034/129023587-104ed98f-9275-4f46-b0fc-597c0a68edcb.png">
     
