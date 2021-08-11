@@ -20,7 +20,7 @@ Copletely intuitive gameplay, using 3 keys. Follow instructions in actual game.
 
 <h2>Build:</h2>
 <li>Create a grid using "for loop" and add divs using JS through DOM.</li>
-<li>Give each cell an id for allocation purposes, applying certain css classes at particular situation to each one, creating actual gameplay.</li>
+<li>Give each "cell" (essentially, div) an id for allocation purposes, applying certain css classes at particular situation to each one, creating actual gameplay.</li>
 <li>Create classes for game objects: aliens, player, bullet, explosion, collision etc.</li>
 <li>Develop functions, setting the raticular rules: collision detection, player position, bullet movement etc.</li>
 <br>
@@ -29,5 +29,9 @@ Copletely intuitive gameplay, using 3 keys. Follow instructions in actual game.
 <h2>Sample code:</h2>
 Here you can see, how the bullet moves and what are the conditions:
 <br>
-1) 
+<br>
+First function defines what to do if a "cell" contains a particular class, and if right key is pressed, adds a bullet
+<br>
+<br>
+Second
 <img width="650" alt="Screenshot 2021-08-11 at 14 34 16" src="https://user-images.githubusercontent.com/81250034/129022002-e2b971bb-f0b6-46b3-bea9-0d6df0625ee4.png">
