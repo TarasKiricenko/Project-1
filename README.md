@@ -57,7 +57,7 @@ This functions defines what happens when you hit the alien:
 <li>I designed this game myself, so the sounds I was using had to be "cut" to particualr pieces, as they had to fit sertain timeframes in my interval-paced game. Good fun and valuable experience.</li>
 
 <h4>Challenges</h4>
-<li></li>
-<li></li>
-<li></li>
+<li>The most challenging part was defining a collision between alien bullet and player, as it is a multi-conditional function, that not only checks, if player was hit, but defines the movement of alien projectile.</li>
+<li>Another very imlortant part, that was hard enough - styling. I wanted to create perfectly playable game, so I spend quite some time looking for right resources and making them look like a solid product.</li>
 
+<h2>Potential imporvements</h2>
