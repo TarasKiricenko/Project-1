@@ -35,11 +35,10 @@ First function defines what to do if a "cell" contains a particular class, and i
 <br>
 Second function is running on interval, and moves the bullet up to the top of game field and removes it when bullet reaches top border.
 <img width="650" alt="Screenshot 2021-08-11 at 14 34 16" src="https://user-images.githubusercontent.com/81250034/129022002-e2b971bb-f0b6-46b3-bea9-0d6df0625ee4.png">
-<
 <br>
 <li>This</li>
-<br>
-Look at this
+This functions defines what happens when you hit the alien:
+<li>It checks, if first of all you do have 2 classes in one "cell" first</li>
 <img width="837" alt="Screenshot 2021-08-11 at 14 46 24" src="https://user-images.githubusercontent.com/81250034/129023587-104ed98f-9275-4f46-b0fc-597c0a68edcb.png">
     
 
