@@ -27,11 +27,14 @@ Copletely intuitive gameplay, using 3 keys. Follow instructions in actual game.
 (for more detailed see "sample code")
     
 <h2>Sample code:</h2>
-Here you can see, how the bullet moves and what are the conditions:
+* Here you can see, how the bullet moves and what are the conditions:
 <br>
 <br>
 First function defines what to do if a "cell" contains a particular class, and if right key is pressed, adds a bullet
 <br>
 <br>
-Second
+Second function is running on interval, and moves the bullet up to the top of game field and removes it when bullet reaches top border.
 <img width="650" alt="Screenshot 2021-08-11 at 14 34 16" src="https://user-images.githubusercontent.com/81250034/129022002-e2b971bb-f0b6-46b3-bea9-0d6df0625ee4.png">
+<br>
+<br>
+*
