@@ -28,5 +28,6 @@ Copletely intuitive gameplay, using 3 keys. Follow instructions in actual game.
     
 <h2>Sample code:</h2>
 Here you can see, how the bullet moves and what are the conditions:
+<br>
 1) 
 <img width="650" alt="Screenshot 2021-08-11 at 14 34 16" src="https://user-images.githubusercontent.com/81250034/129022002-e2b971bb-f0b6-46b3-bea9-0d6df0625ee4.png">
