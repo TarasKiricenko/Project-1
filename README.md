@@ -52,6 +52,7 @@ This functions defines what happens when you hit the alien:
 <img width="837" alt="Screenshot 2021-08-11 at 14 46 24" src="https://user-images.githubusercontent.com/81250034/129023587-104ed98f-9275-4f46-b0fc-597c0a68edcb.png">
 
 <h2>Wins and challenges</h2>
+<h4>Wins</h4>
 <li>It was great practice on array methods and interval management, as well as using "for loop" and getElement functions. Perfect kind of project for beginners to solidify their knowledge of JavaScript</li>
 <li></li>
 <li></li>
