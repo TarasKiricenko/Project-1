@@ -60,7 +60,7 @@ This functions defines what happens when you hit the alien:
 <li>The most challenging part was defining a collision between alien bullet and player, as it is a multi-conditional function, that not only checks, if player was hit, but defines the movement of alien projectile.</li>
 <li>Another very imlortant part, that was hard enough - styling. I wanted to create perfectly playable game, so I spend quite some time looking for right resources and making them look like a solid product.</li>
 
-<h2>Potential imporvements:</h2>
+<h2>Potential improvements:</h2>
 <li>Pause game functionality.</li>
 <li>Mute functionality.</li>
 <li>2 players functionality - 2 simultaneously and/or turn taking.</li>
