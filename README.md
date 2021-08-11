@@ -24,7 +24,7 @@ Copletely intuitive gameplay, using 3 keys. Follow instructions in actual game.
 <li>Create classes for game objects: aliens, player, bullet, explosion, collision etc.</li>
 <li>Develop functions, setting the raticular rules: collision detection, player position, bullet movement etc.</li>
 <br>
-(for more detailed see "sample code")
+(for more detailed examples see "sample code")
     
 <h2>Sample code:</h2>
 <li>Here you can see, how the bullet moves and what are the conditions:</li>
