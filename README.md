@@ -35,7 +35,7 @@ First function defines what to do if a "cell" contains a particular class, and i
 Second function is running on interval, and moves the bullet up to the top of game field and removes it when bullet reaches top border.
 <img width="650" alt="Screenshot 2021-08-11 at 14 34 16" src="https://user-images.githubusercontent.com/81250034/129022002-e2b971bb-f0b6-46b3-bea9-0d6df0625ee4.png">
 <br>
-<li>Here you can have a look at the another functional part.</li>
+<li>Here you can have a look at the another functional part:</li>
 <br>
 This functions defines what happens when you hit the alien:
 <br>
