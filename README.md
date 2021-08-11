@@ -29,7 +29,6 @@ Copletely intuitive gameplay, using 3 keys. Follow instructions in actual game.
 <h2>Sample code:</h2>
 <li>Here you can see, how the bullet moves and what are the conditions:</li>
 <br>
-<br>
 First function defines what to do if a "cell" contains a particular class, and if right key is pressed, adds a bullet
 <br>
 <br>
