@@ -23,6 +23,7 @@ Copletely intuitive gameplay, using 3 keys. Follow instructions in actual game.
 <li>Give each cell an id for allocation purposes, applying certain css classes at particular situation to each one, creating actual gameplay.</li>
 <li>Create classes for game objects: aliens, player, bullet, explosion, collision etc.</li>
 <li>Develop functions, setting the raticular rules: collision detection, player position, bullet movement etc.</li>
+
 (for more detailed see "sample code")
     
 
