@@ -13,5 +13,5 @@ My personal version of Space Invaders classical 80's game. Player aiming to shoo
 * CSS3
 
 <h2>Sample screenshots</h2>
-
+<img src="file:///Users/taraskiricenko/Desktop/Screenshot%202021-08-11%20at%2014.08.37.png">
 
