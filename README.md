@@ -54,7 +54,7 @@ This functions defines what happens when you hit the alien:
 <h2>Wins and challenges</h2>
 <h4>Wins</h4>
 <li>It was great practice on array methods and interval management, as well as using "for loop" and getElement functions. Perfect kind of project for beginners to solidify their knowledge of JavaScript</li>
-<li></li>
+<li>I designed this game myself, so the sounds I was using had to be "cut" to particualr pieces, as they had to fit sertain timeframes in my interval-paced game. Find it great experience.</li>
 <li></li>
 <li></li>
 <li></li>
