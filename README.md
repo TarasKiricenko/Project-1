@@ -37,7 +37,7 @@ Second function is running on interval, and moves the bullet up to the top of ga
 <img width="650" alt="Screenshot 2021-08-11 at 14 34 16" src="https://user-images.githubusercontent.com/81250034/129022002-e2b971bb-f0b6-46b3-bea9-0d6df0625ee4.png">
 <
 <br>
-<li>Th
+<li>This</li>
 <img width="837" alt="Screenshot 2021-08-11 at 14 46 24" src="https://user-images.githubusercontent.com/81250034/129023587-104ed98f-9275-4f46-b0fc-597c0a68edcb.png">
     
 
