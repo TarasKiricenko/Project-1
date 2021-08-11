@@ -11,9 +11,9 @@ Copletely intuitive gameplay, using 3 keys. Follow instructions in actual game.
 <a href="https://taraskiricenko.github.io/Project-1/">Space Invaders</a>
 
 <h2>Tech used:</h2>
-* JavaScript
-* HTML
-* CSS3
+<li>JavaScript</li>
+<li>HTML</li>
+<li>CSS3</li>
 
 <h2>Sample screenshot:</h2>
 <img width="678" alt="Screenshot 2021-08-11 at 14 08 37" src="https://user-images.githubusercontent.com/81250034/129019683-2485fda7-d442-4a88-b1dc-919b2bef0872.png">
