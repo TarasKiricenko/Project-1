@@ -1,5 +1,4 @@
 # SPACE INVADERS
-First project on my learning path.
 
 <h2>Overview:</h2>
 Software Engineering Immersive Course - Project-1 - Individual Project - 1 week
