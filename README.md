@@ -1,7 +1,7 @@
 # SPACE INVADERS
 
 <h2>Overview:</h2>
-Software Engineering Immersive Course - Project-1 - Individual Project - 1 week
+Software Engineering Immersive Course - Project-1 - Individual Project - 1 week.
 
 <h2>Brief:</h2>
 Project purpose - building a game using a HTML grid of divs as the environment for gameplay. There were suggesstions to choose from: Pacman, Tetris, Frogger etc. Timeframe - 1 week. Expected to have fully functional game, with ability for player to win and lose.
