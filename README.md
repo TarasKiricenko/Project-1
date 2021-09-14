@@ -48,7 +48,7 @@ Second function is running on interval, and moves the bullet up to the top of ga
 This functions define what happens when you hit the alien:
 <br>
 <br>
-* It checks, if first of all you do have 2 classes in one "cell" first
+* It checks, if first of all you do have 2 classes in one "cell" first.
 <br>
 * Add points to your score span.
 <br>
