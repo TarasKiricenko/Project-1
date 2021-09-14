@@ -5,7 +5,7 @@ First project on my learning path.
 Software Engineering Immersive Course - Project-1 - Individual Project - 1 week
 
 <h2>Brief:</h2>
-Project purpose - building a game that is using a HTML grid of divs as the environment for gameplay. There were suggesstions to choose from: Pacman, Tetris, Frogger etc.
+Project purpose - building a game using a HTML grid of divs as the environment for gameplay. There were suggesstions to choose from: Pacman, Tetris, Frogger etc. Timeframe - 1 week. Expected to have fully functional game, with ability for player to win and lose.
 
 <h2>Approach:</h2>
 My personal version of Space Invaders classical 80's game. Player aiming to shoot down all aliens, moving only right or left. Aliens slowly moving descending, randomly trying to drop bombs on player. As soon as all aliens are taken downs or player loses all 3 lives - game is over. Target is to achieve maximum points, each alien taken down earning you 10 points. You can only have one bullet on screen, before it reaches the target or leaves the game field, otherwise launching the second one, eliminates the first one.
